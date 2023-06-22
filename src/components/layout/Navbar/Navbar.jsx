@@ -1,10 +1,10 @@
 import "./Navbar.css";
 import CartWidget from "../../common/cartWidget/CartWidget";
-import ItemListContainer from "../../pages/itemList/ItemListContainer";
 import User from "../../common/user/User";
 import Logo from "../../common/logo/Logo";
 import { Box, Paper } from "@mui/material";
 import BarraBusqueda from "../../common/barra/BarraBusqueda";
+import SeccionesContainer from "../../common/Secciones/SeccionesContainer";
 
 const Navbar = () => {
     return (
@@ -51,7 +51,7 @@ const Navbar = () => {
                     alignItems: "center",
                 }}
             >
-                <ItemListContainer />
+                <SeccionesContainer />
             </Box>
 
             {/* CARRITO Y LOGIN */}

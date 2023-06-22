@@ -1,10 +1,17 @@
-import HomeContainer from "./components/pages/home/HomeContainer";
 import Navbar from "./components/layout/Navbar/Navbar";
+import ItemDetailContainer from "./components/pages/itemDetail/ItemDetailContainer";
+import ItemListContainer from "./components/pages/itemList/ItemListContainer";
+import { useState } from "react";
 function App() {
-    let nombre = "Nicolas";
+    const [mostrarComponente, setMostrarComponente] = useState(false);
     return (
         <div>
             <Navbar />
+            {/* <button onClick={() => setMostrarComponente(!mostrarComponente)}>
+                Montar/desmontar componente
+            </button> */}
+
+            <ItemDetailContainer />
         </div>
     );
 }

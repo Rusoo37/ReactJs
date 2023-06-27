@@ -7,11 +7,7 @@ function App() {
     return (
         <div>
             <Navbar />
-            {/* <button onClick={() => setMostrarComponente(!mostrarComponente)}>
-                Montar/desmontar componente
-            </button> */}
-
-            <ItemDetailContainer />
+            <ItemListContainer />
         </div>
     );
 }

@@ -1,31 +1,26 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { products } from "../../../ProductMock";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([]);
+    const [items, setItems] = useState([]);
 
-    const [edad, setEdad] = useState(18);
-
-    /* VARIANTE 1
     useEffect(() => {
-        console.log("Llamado a la API");
-    }, []); --> Array de dependencias
-    */
-
-    /* VARIANTE 2
-    useEffect(() => {
-        console.log("Llamado a la API");
-    }, [edad]); --> Vuelve a renderizarse con edad
-    */
+        const tarea = new Promise((resolve, reject) => {
+            resolve(products);
+        });
+        tarea
+            .then((respuesta) => {
+                setItems(respuesta);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
 
     return (
         <div>
-            <ItemList
-                edad={edad}
-                setEdad={setEdad}
-                products={products}
-                setProducts={setProducts}
-            />
+            <ItemList items={items} />
         </div>
     );
 };

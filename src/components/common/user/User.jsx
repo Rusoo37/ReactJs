@@ -1,9 +1,12 @@
 import { BiUser } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const User = () => {
     return (
         <div>
-            <BiUser color={"white"} size={"30px"} />
+            <Link to="/login">
+                <BiUser color={"white"} size={"30px"} />
+            </Link>
         </div>
     );
 };

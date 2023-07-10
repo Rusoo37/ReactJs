@@ -1,66 +1,55 @@
 import { Button } from "@mui/material";
 import "./Secciones.css";
+import { Link } from "react-router-dom";
 
 const Secciones = ({ marcas, aparecer }) => {
     const [m1, m2, m3] = marcas;
     return (
         <>
             <div>
-                <Button
-                    sx={{
-                        height: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        width: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        color: "white",
-                    }}
-                    id="btn1"
-                    className="btn"
-                    onClick={() => aparecer(1)}
-                >
-                    {m1}
-                </Button>
-                <ul className="cat cat-1" style={{ display: "none" }}>
-                    <li>Mercurial</li>
-                    <li>Phantom</li>
-                    <li>Tiempo</li>
-                </ul>
+                <Link to="/category/nike">
+                    <Button
+                        sx={{
+                            height: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            width: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            color: "white",
+                        }}
+                        id="btn1"
+                        className="btn"
+                    >
+                        {m1}
+                    </Button>
+                </Link>
             </div>
             <div>
-                <Button
-                    sx={{
-                        height: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        width: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        color: "white",
-                    }}
-                    id="btn2"
-                    className="btn"
-                    onClick={() => aparecer(2)}
-                >
-                    {m2}
-                </Button>
-                <ul className="cat cat-2" style={{ display: "none" }}>
-                    <li>Predator</li>
-                    <li>X speedflow</li>
-                    <li>Copa</li>
-                </ul>
+                <Link to="/category/adidas">
+                    <Button
+                        sx={{
+                            height: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            width: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            color: "white",
+                        }}
+                        id="btn2"
+                        className="btn"
+                    >
+                        {m2}
+                    </Button>
+                </Link>
             </div>
             <div>
-                <Button
-                    sx={{
-                        height: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        width: { xs: "1rem", sm: "2rem", md: "3rem" },
-                        color: "white",
-                    }}
-                    id="btn3"
-                    className="btn"
-                    onClick={() => aparecer(3)}
-                >
-                    {m3}
-                </Button>
-                <ul className="cat cat-3" style={{ display: "none" }}>
-                    <li>Future</li>
-                    <li>Ultra</li>
-                    <li>Borussia</li>
-                </ul>
+                <Link to="/category/puma">
+                    <Button
+                        sx={{
+                            height: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            width: { xs: "1rem", sm: "2rem", md: "3rem" },
+                            color: "white",
+                        }}
+                        id="btn3"
+                        className="btn"
+                    >
+                        {m3}
+                    </Button>
+                </Link>
             </div>
         </>
     );

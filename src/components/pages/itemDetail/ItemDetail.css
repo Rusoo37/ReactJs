@@ -1,0 +1,20 @@
+.container-detail {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 0 5px 5px #ebedef;
+}
+.info-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const productCard = ({ item }) => {
     return (
-        <div>
+        <div key={item.id}>
             <Card
                 sx={{
                     width: { xs: 200, sm: 280, md: 300 },

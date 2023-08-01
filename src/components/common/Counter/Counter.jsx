@@ -1,6 +1,5 @@
-import { Button } from "@mui/material";
-import React from "react";
-
+import { Button, Typography } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
 const Counter = ({ stock, contador, setContador, agregarAlCarrito }) => {
     return (
         <div
@@ -11,31 +10,33 @@ const Counter = ({ stock, contador, setContador, agregarAlCarrito }) => {
                 marginTop: "10px",
             }}
         >
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "left",
-                    gap: "20px",
-                }}
-            >
-                <Button
-                    /* disabled={contador > 0 ? false : true} */
-                    disabled={contador <= 1}
-                    variant="outlined"
-                    onClick={() => setContador(contador - 1)}
+            {stock != 0 ? (
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "left",
+                        gap: "20px",
+                    }}
                 >
-                    -
-                </Button>
-                <h2>{contador}</h2>
-                <Button
-                    /* disabled={contador < stock ? false : true} */
-                    disabled={contador >= stock}
-                    variant="outlined"
-                    onClick={() => setContador(contador + 1)}
-                >
-                    +
-                </Button>
-            </div>
+                    <Button
+                        disabled={contador <= 1}
+                        variant="outlined"
+                        onClick={() => setContador(contador - 1)}
+                    >
+                        -
+                    </Button>
+                    <h2>{contador}</h2>
+                    <Button
+                        disabled={contador >= stock}
+                        variant="outlined"
+                        onClick={() => setContador(contador + 1)}
+                    >
+                        +
+                    </Button>{" "}
+                </div>
+            ) : (
+                <Typography variant="h4">Sin stock</Typography>
+            )}
             <div
                 style={{
                     display: "flex",
@@ -47,9 +48,11 @@ const Counter = ({ stock, contador, setContador, agregarAlCarrito }) => {
                     variant="outlined"
                     onClick={() => agregarAlCarrito(contador)}
                     sx={{ width: 200, height: 40 }}
+                    disabled={stock == 0 ? true : false}
                 >
                     Agregar al carrito
                 </Button>
+                <ToastContainer />
             </div>
         </div>
     );

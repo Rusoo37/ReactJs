@@ -3,7 +3,7 @@ import * as React from "react";
 import CounterContainer from "../../common/Counter/CounterContainer";
 import "./ItemDetail.css";
 
-const ItemDetail = ({ product, agregarAlCarrito }) => {
+const ItemDetail = ({ product, agregarAlCarrito, cantidadEnCarrito }) => {
     return (
         <div className="container-detail">
             <Box
@@ -35,6 +35,7 @@ const ItemDetail = ({ product, agregarAlCarrito }) => {
                         </Typography>
                         <h3>$ {product.price}</h3>
                         <CounterContainer
+                            cantidadEnCarrito={cantidadEnCarrito}
                             stock={product.stock}
                             agregarAlCarrito={agregarAlCarrito}
                         />

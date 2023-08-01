@@ -1,0 +1,11 @@
+.container-secciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.secciones-contactos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}

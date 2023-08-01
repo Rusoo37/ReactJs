@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Counter from "./Counter";
+import "react-toastify/dist/ReactToastify.css";
 
-const CounterContainer = ({ stock, agregarAlCarrito }) => {
-    const [contador, setContador] = useState(1);
+const CounterContainer = ({
+    stock,
+    agregarAlCarrito,
+    cantidadEnCarrito = 1,
+}) => {
+    const [contador, setContador] = useState(cantidadEnCarrito);
+
     return (
         <div>
             <Counter

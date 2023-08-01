@@ -72,7 +72,6 @@ const Navbar = () => {
                     <User />
                 </Box>
             </div>
-            <Outlet />
         </div>
     );
 };

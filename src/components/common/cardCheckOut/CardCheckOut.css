@@ -1,0 +1,14 @@
+.container-card-CheckOut {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+}
+.img-cardCheckOut {
+    height: 5rem;
+    border-radius: 3px;
+}
+.tittle-cardCheckOut {
+    width: 11rem;
+    max-width: 11rem;
+}

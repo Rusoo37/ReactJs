@@ -1,0 +1,26 @@
+.containerBarra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 4rem;
+    width: 10%;
+    background-color: none;
+}
+.containerBusqueda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3.5rem;
+    width: 24rem;
+}
+.ulBarra {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 25rem;
+    left: 13.38%;
+    top: 11.8%;
+    overflow-y: scroll;
+    background-color: white;
+    position: absolute;
+}

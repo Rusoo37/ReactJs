@@ -1,13 +1,20 @@
-/* -Ver clase workshop final
+/\*
+Itemlist -- Done
+ItemDetail -- Done
+CheckOut -- Done
+Cart -- Done
+Navbar -- Done
+Footer -- Done
+Dashboard -- In process
+Login -- In process
 
-1/8 - Dashboard
+ - Dashboard
+--Ver en youtube como hacer un Dashboard
+-Vista -- Done
+-CRUD -- En Proceso ( Delete --> Done )
 
--Vista -- En proceso
--Boton de aparecer y desaparecer -- Done
--CRUD -- 
+User
+-Si esta iniciado, que desaparezca el icono y aparezca el nombre --
+-Enviar al inicio
 
-
-2/8 User
--Si esta iniciado, que desaparezca el icono y aparezca el nombre -- 
--Enviar al inicio  
- */
+\*/

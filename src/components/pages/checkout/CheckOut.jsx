@@ -2,6 +2,7 @@ import { Button, TextField, Typography } from "@mui/material";
 import CardCheckOut from "../../common/cardCheckOut/CardCheckOut";
 import "./Checkout.css";
 import { Link, useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const CheckOut = ({
     handleSubmit,
@@ -26,7 +27,7 @@ const CheckOut = ({
                         <Button variant="outlined">Volver al home</Button>
                     </Link>
                 </div>
-            ) : (
+            ) : cart.length != 0 ? (
                 <div className="container-blocks">
                     <form
                         onSubmit={handleSubmit}
@@ -82,56 +83,33 @@ const CheckOut = ({
                             Comprar
                         </Button>
                     </form>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "2rem",
-                        }}
-                    >
-                        {cart.length != 0 ? (
-                            <div>
-                                <div
-                                    className="block-1"
-                                    style={{
-                                        maxHeight: "27rem",
-                                        height: "10rem",
-                                        width: "80%",
-                                    }}
-                                >
-                                    {cart.map((elemento) => (
-                                        <CardCheckOut
-                                            key={elemento.id}
-                                            elemento={elemento}
-                                            total={total}
-                                        />
-                                    ))}
-                                </div>
-                                <div className="total-check">
-                                    <Typography variant="h5">
-                                        Total: ${total}
-                                    </Typography>
-                                </div>
-                            </div>
-                        ) : (
-                            <div
-                                className="block-1"
-                                style={{
-                                    height: "32rem",
-                                    width: "15rem",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                }}
-                            >
-                                <img
-                                    src="https://res.cloudinary.com/dqonbozpq/image/upload/v1690132374/2762885_fmsghs.png"
-                                    alt="CarritoVacio"
-                                    style={{ height: "8rem", width: "8rem" }}
+                    <div>
+                        <div
+                            className="block-1"
+                            style={{
+                                width: "100%",
+                                height: "20rem",
+                                overflowY: "scroll",
+                            }}
+                        >
+                            {cart.map((elemento) => (
+                                <CardCheckOut
+                                    key={elemento.id}
+                                    elemento={elemento}
+                                    total={total}
                                 />
-                            </div>
-                        )}
+                            ))}
+                        </div>
+                        <div className="total-check">
+                            <Typography variant="h5">
+                                Total: ${total}
+                            </Typography>
+                        </div>
                     </div>
+                </div>
+            ) : (
+                <div style={{ height: "30rem", marginTop: "5rem" }}>
+                    <CircularProgress />
                 </div>
             )}
         </div>

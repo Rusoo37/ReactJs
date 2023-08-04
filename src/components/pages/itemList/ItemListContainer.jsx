@@ -29,19 +29,8 @@ const ItemListContainer = () => {
         });
     }, [categoryName]);
 
-    /* RENDERING 1
-    if (items.length === 0) {
-        return <h2>Cargando...</h2>;
-    } */
-
     return (
         <div>
-            {/* RENDERING 2
-            { items.length === 0 ? (
-                <h2>Cargando</h2>
-            ) : (
-                <ItemList items={items} />
-            )} */}
             <ItemList items={items} />
         </div>
     );

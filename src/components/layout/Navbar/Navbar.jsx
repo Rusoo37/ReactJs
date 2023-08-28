@@ -5,9 +5,14 @@ import Logo from "../../common/logo/Logo";
 import { Box, Paper } from "@mui/material";
 import BarraBusqueda from "../../common/barra/BarraBusqueda";
 import SeccionesContainer from "../../common/Secciones/SeccionesContainer";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "../../../context/LoginContext";
+import LogOut from "../../common/logOut/LogOut";
+import DashNavbar from "../../common/dashNavbar/DashNavbar";
 
 const Navbar = () => {
+    const { isUser, isAdmin } = useContext(LoginContext);
     return (
         <div>
             <div className="nav-container">
@@ -65,11 +70,12 @@ const Navbar = () => {
                             xs: "space-between",
                             md: "space-around",
                         },
+                        gap: "1rem",
                         width: { xs: "15%", sm: "10%", md: "10%" },
                     }}
                 >
-                    <CartWidget />
-                    <User />
+                    {isAdmin ? <DashNavbar /> : <CartWidget />}
+                    {isUser ? <LogOut /> : <User />}
                 </Box>
             </div>
         </div>

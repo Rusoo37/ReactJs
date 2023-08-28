@@ -1,5 +1,5 @@
 import Login from "./Login";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
     getAuth,
     signInWithPopup,
@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebaseConfig/firebaseConfig";
+import { LoginContext } from "../../../context/LoginContext";
 
 const providerF = new FacebookAuthProvider();
 
@@ -15,6 +16,8 @@ const providerG = new GoogleAuthProvider();
 
 const LoginContainer = () => {
     const [users, setUsers] = useState([]);
+
+    const { inicioDeSesion } = useContext(LoginContext);
 
     useEffect(() => {
         let usersCollection = collection(db, "users");
@@ -99,6 +102,7 @@ const LoginContainer = () => {
                 callLoginGoogle={callLoginGoogle}
                 callLoginFacebook={callLoginFacebook}
                 users={users}
+                inicioDeSesion={inicioDeSesion}
             />
         </div>
     );

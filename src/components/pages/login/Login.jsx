@@ -1,7 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useFormik } from "formik";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
@@ -12,6 +12,7 @@ const Login = ({
     callLoginGoogle,
     callLoginFacebook,
     users,
+    inicioDeSesion,
 }) => {
     const { handleSubmit, handleChange, errors } = useFormik({
         initialValues: {
@@ -26,7 +27,15 @@ const Login = ({
                 (user) => user.client.password === data.password
             );
             if (estaMail && estaPassword) {
-                Swal.fire("Login exitoso!", "success");
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Sesión iniciada correctamente",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                inicioDeSesion(data);
+                redirect("/home");
             } else {
                 Swal.fire("El mail o contraseña incorrecta!", "error");
             }

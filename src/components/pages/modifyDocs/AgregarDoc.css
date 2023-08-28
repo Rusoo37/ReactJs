@@ -1,0 +1,27 @@
+.container-addDoc {
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bff0f0;
+}
+.form-addDoc {
+    background-color: white;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px #fffcdb;
+}
+.inputs-addDoc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}

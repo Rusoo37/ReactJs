@@ -6,7 +6,6 @@ import * as Yup from "yup";
 import Swal from "sweetalert2";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../../firebaseConfig/firebaseConfig";
-import { Navigate } from "react-router-dom";
 
 const Register = ({ showPass, showPassword, users, setUserId, addUser }) => {
     const { handleSubmit, handleChange, errors } = useFormik({
@@ -136,7 +135,7 @@ const Register = ({ showPass, showPassword, users, setUserId, addUser }) => {
                     variant="outlined"
                     sx={{ margin: "auto" }}
                 >
-                    Registrarse
+                    Agregar Producto
                 </Button>
             </form>
         </div>

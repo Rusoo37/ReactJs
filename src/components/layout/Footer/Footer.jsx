@@ -88,7 +88,7 @@ const Footer = () => {
                 </div>
             </Box>
             <div className="desarrollado">
-                <h4>@ Developed by Angladette</h4>
+                <h4>© Developed by Angladette</h4>
             </div>
         </div>
     );

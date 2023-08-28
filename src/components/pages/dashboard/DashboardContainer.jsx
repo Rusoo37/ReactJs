@@ -6,7 +6,7 @@ import {
     deleteDoc,
     doc,
     getDocs,
-    setDoc,
+    updateDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
@@ -21,42 +21,63 @@ const DashboardContainer = ({}) => {
     useEffect(() => {
         getDocs(productsCollection).then((res) => {
             let newArrProducts = res.docs.map((product) => {
-                return { ...product.data() };
+                return { ...product.data(), id: product.id };
             });
             setProductDash(newArrProducts);
         });
         getDocs(ordersCollection).then((res) => {
             let newArrOrders = res.docs.map((order) => {
-                return { ...order.data() };
+                return { ...order.data(), id: order.id };
             });
             setOrdersDash(newArrOrders);
         });
 
         getDocs(usersCollection).then((res) => {
             let newArrUsers = res.docs.map((user) => {
-                return { ...user.data() };
+                return { ...user.data(), id: user.id };
             });
             setUsersDash(newArrUsers);
         });
     }, []);
 
-    const eliminarById = (item) => {
+    const eliminarProductById = (item) => {
         getDocs(productsCollection).then((res) => {
             let newArrProducts = res.docs.map((product) => {
-                if (product.data().tittle == item.tittle) {
+                if (product.id == item.id) {
                     deleteDoc(doc(db, "products", product.id));
                 }
             });
         });
     };
 
+    const eliminarUserById = (item) => {
+        getDocs(usersCollection).then((res) => {
+            let newArrProducts = res.docs.map((user) => {
+                if (user.id == item.id) {
+                    console.log("se elimino");
+                    deleteDoc(doc(db, "users", user.id));
+                }
+            });
+        });
+    };
+    const eliminarOrderById = (item) => {
+        getDocs(ordersCollection).then((res) => {
+            let newArrProducts = res.docs.map((order) => {
+                if (order.id == item.id) {
+                    deleteDoc(doc(db, "orders", item.id));
+                }
+            });
+        });
+    };
     return (
         <div className="opciones-dashboard">
             <Dashboard
                 ordersDash={ordersDash}
                 productsDash={productsDash}
                 usersDash={usersDash}
-                eliminarById={eliminarById}
+                eliminarProductById={eliminarProductById}
+                eliminarOrderById={eliminarOrderById}
+                eliminarUserById={eliminarUserById}
             />
             ;
         </div>

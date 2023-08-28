@@ -11,7 +11,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const TablaOrders = ({ ordersDash }) => {
+const TablaOrders = ({ ordersDash, eliminarOrderById }) => {
     return (
         <Paper>
             <Typography variant="h4">Órdenes</Typography>
@@ -23,26 +23,22 @@ const TablaOrders = ({ ordersDash }) => {
                         <TableCell>Email</TableCell>
                         <TableCell>Localidad</TableCell>
                         <TableCell>Phone</TableCell>
-                        <TableCell>Editar</TableCell>
                         <TableCell>Eliminar</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {ordersDash.length > 0 &&
                         ordersDash.map((item) => (
-                            <TableRow key={item.buyer.email}>
+                            <TableRow key={item.id}>
                                 <TableCell>{item.buyer.apellido}</TableCell>
                                 <TableCell>{item.buyer.nombre}</TableCell>
                                 <TableCell>{item.buyer.email}</TableCell>
                                 <TableCell>{item.buyer.localidad}</TableCell>
                                 <TableCell>{item.buyer.phone}</TableCell>
                                 <TableCell>
-                                    <Button>
-                                        <EditIcon />
-                                    </Button>
-                                </TableCell>
-                                <TableCell>
-                                    <Button>
+                                    <Button
+                                        onClick={() => eliminarOrderById(item)}
+                                    >
                                         <DeleteIcon />
                                     </Button>
                                 </TableCell>

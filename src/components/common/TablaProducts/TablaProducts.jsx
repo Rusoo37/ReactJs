@@ -10,12 +10,18 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import { Link } from "react-router-dom";
 
-const TablaProducts = ({ productsDash, eliminarById }) => {
+const TablaProducts = ({ productsDash, eliminarProductById }) => {
     return (
         <Paper>
-            <Typography variant="h4">Productos</Typography>
-            <Table>
+            <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
+                Productos
+            </Typography>
+            <Link to="./../agregarDocumento">
+                <Button variant="outlined">Agregar Producto</Button>
+            </Link>
+            <Table sx={{ marginTop: "1rem" }}>
                 <TableHead>
                     <TableRow>
                         <TableCell>Tittle</TableCell>
@@ -24,14 +30,13 @@ const TablaProducts = ({ productsDash, eliminarById }) => {
                         <TableCell>Color</TableCell>
                         <TableCell>Imagen</TableCell>
                         <TableCell>Descripcion</TableCell>
-                        <TableCell>Editar</TableCell>
                         <TableCell>Eliminar</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {productsDash.length > 0 &&
                         productsDash.map((item) => (
-                            <TableRow>
+                            <TableRow key={item.id}>
                                 <TableCell>{item.tittle}</TableCell>
                                 <TableCell>{item.price}</TableCell>
                                 <TableCell>{item.stock}</TableCell>
@@ -43,12 +48,11 @@ const TablaProducts = ({ productsDash, eliminarById }) => {
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    <Button>
-                                        <EditIcon />
-                                    </Button>
-                                </TableCell>
-                                <TableCell>
-                                    <Button onClick={() => eliminarById(item)}>
+                                    <Button
+                                        onClick={() =>
+                                            eliminarProductById(item)
+                                        }
+                                    >
                                         <DeleteIcon />
                                     </Button>
                                 </TableCell>

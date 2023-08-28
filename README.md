@@ -21,3 +21,18 @@ Estas mejoras las queria realizar para la entrega final, pero debido a trabajar,
 -   Login, se resistra y loguea correctamente, lo unico que le falta es que al estar iniciado, hacer la persistencia de los datos y que desaparezca el boton para loguearse.
 -   Dashboard: Hasta el momento solo se puede ver los productos, ordenes y usuarios. Ademas, solo puede eliminar. (Mas adelante, lo hare funcionar al 100%).
     .
+
+# Lo que faltaba
+
+## Dashboard
+
+-   Agregar -Done-
+
+## Login
+
+-   Si es el admin, que aparezca el dashboard -Done-
+-   Hacer que ande el navigate -Donde-
+
+## Mercado Pago
+
+-   Integrar Mercado Pago.

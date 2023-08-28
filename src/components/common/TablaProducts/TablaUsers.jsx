@@ -11,7 +11,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const TablaUsers = ({ usersDash }) => {
+const TablaUsers = ({ usersDash, eliminarUserById }) => {
     return (
         <Paper>
             <Typography variant="h4">Usuarios</Typography>
@@ -22,25 +22,21 @@ const TablaUsers = ({ usersDash }) => {
                         <TableCell>Email</TableCell>
                         <TableCell>Password</TableCell>
                         <TableCell>Repeat</TableCell>
-                        <TableCell>Editar</TableCell>
                         <TableCell>Eliminar</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {usersDash.length > 0 &&
                         usersDash.map((item) => (
-                            <TableRow key={item.client.email}>
+                            <TableRow key={item.id}>
                                 <TableCell>{item.client.nombre}</TableCell>
                                 <TableCell>{item.client.email}</TableCell>
                                 <TableCell>{item.client.password}</TableCell>
                                 <TableCell>{item.client.repeat}</TableCell>
                                 <TableCell>
-                                    <Button>
-                                        <EditIcon />
-                                    </Button>
-                                </TableCell>
-                                <TableCell>
-                                    <Button>
+                                    <Button
+                                        onClick={() => eliminarUserById(item)}
+                                    >
                                         <DeleteIcon />
                                     </Button>
                                 </TableCell>

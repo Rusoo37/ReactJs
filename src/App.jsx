@@ -1,13 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router/AppRouter";
 import CartContextComponent from "./context/CartContext";
+import LoginContextComponent from "./context/LoginContext";
 function App() {
     return (
         <div>
             <BrowserRouter>
-                <CartContextComponent>
-                    <AppRouter />
-                </CartContextComponent>
+                <LoginContextComponent>
+                    <CartContextComponent>
+                        <AppRouter />
+                    </CartContextComponent>
+                </LoginContextComponent>
             </BrowserRouter>
         </div>
     );

@@ -4,6 +4,7 @@ import DashboardContainer from "../components/pages/dashboard/DashboardContainer
 import ItemDetailContainer from "../components/pages/itemDetail/ItemDetailContainer";
 import ItemListContainer from "../components/pages/itemList/ItemListContainer";
 import LoginContainer from "../components/pages/login/LoginContainer";
+import AgregarDocContainer from "../components/pages/modifyDocs/AgregarDocContainer";
 import RegisterContainer from "../components/pages/register/RegisterContainer";
 
 export const routes = [
@@ -46,5 +47,10 @@ export const routes = [
         id: "dashboard",
         path: "/dashboard",
         Element: DashboardContainer,
+    },
+    {
+        id: "agregarDoc",
+        path: "/agregarDocumento",
+        Element: AgregarDocContainer,
     },
 ];

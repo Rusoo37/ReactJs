@@ -5,7 +5,14 @@ import { useState } from "react";
 import TablaOrders from "../../common/TablaProducts/TablaOrders";
 import TablaUsers from "../../common/TablaProducts/TablaUsers";
 
-const Dashboard = ({ ordersDash, productsDash, usersDash, eliminarById }) => {
+const Dashboard = ({
+    ordersDash,
+    productsDash,
+    usersDash,
+    eliminarProductById,
+    eliminarOrderById,
+    eliminarUserById,
+}) => {
     const [titulo, setTitulo] = useState("");
     const [showProducts, setShowProducts] = useState(false);
     const [showOrders, setShowOrders] = useState(false);
@@ -44,18 +51,28 @@ const Dashboard = ({ ordersDash, productsDash, usersDash, eliminarById }) => {
                 {showProducts && (
                     <TablaProducts
                         productsDash={productsDash}
-                        eliminarById={eliminarById}
+                        eliminarProductById={eliminarProductById}
                     />
                 )}
             </div>
             <div className="information-dashboard">
-                {showOrders && <TablaOrders ordersDash={ordersDash} />}
+                {showOrders && (
+                    <TablaOrders
+                        ordersDash={ordersDash}
+                        eliminarOrderById={eliminarOrderById}
+                    />
+                )}
             </div>
             <div
                 className="information-dashboard"
                 style={{ marginBottom: "5rem" }}
             >
-                {showUsers && <TablaUsers usersDash={usersDash} />}
+                {showUsers && (
+                    <TablaUsers
+                        usersDash={usersDash}
+                        eliminarUserById={eliminarUserById}
+                    />
+                )}
             </div>
         </div>
     );
